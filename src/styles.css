@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&display=swap");
+
+:root {
+  color: #1f1b17;
+  background: #f4e8d8;
+  font-family: "Cormorant Garamond", "Iowan Old Style", "Palatino Linotype", Georgia,
+    serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: radial-gradient(circle at 30% -10%, #fbf2e4, #f4e8d8 45%, #eadcc9);
+}
+
+.app-shell {
+  width: 100%;
+  height: 100%;
+  padding: 1.7rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1.1rem;
+}
+
+h1 {
+  margin: 0;
+  text-align: left;
+  font-size: clamp(3.3rem, 7.2vw, 8.1rem);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 0.84;
+  color: #1e1c1b;
+}
+
+.cards-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 1rem;
+  margin-top: 0.2rem;
+}
+
+.bottom-row {
+  width: 100%;
+  margin-top: 0;
+  flex: 1;
+  min-height: 170px;
+}
+
+.social-card {
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  min-width: 0;
+  border-radius: 16px;
+  border: 1px solid rgba(31, 27, 23, 0.18);
+  background: rgba(255, 255, 255, 0.48);
+  box-shadow: 0 8px 28px rgba(31, 27, 23, 0.08);
+  padding: 0.95rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #1f1b17;
+  transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
+}
+
+.social-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(31, 27, 23, 0.12);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.social-card:focus-visible {
+  outline: 2px solid rgba(31, 27, 23, 0.42);
+  outline-offset: 3px;
+}
+
+.card-brand {
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(31, 27, 23, 0.16);
+}
+
+.linked-in-mark {
+  width: 52px;
+  height: 52px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  background: #0a66c2;
+}
+
+.card-title {
+  font-size: 1.44rem;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-wrap: balance;
+}
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.65rem;
+  font-size: 1.2rem;
+  opacity: 0.86;
+}
+
+.card-loading {
+  width: 100%;
+  height: 84px;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(31, 27, 23, 0.08),
+    rgba(31, 27, 23, 0.16),
+    rgba(31, 27, 23, 0.08)
+  );
+  background-size: 230% 100%;
+  animation: shimmer 1.3s linear infinite;
+}
+
+.contact-add {
+  cursor: pointer;
+  font: inherit;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.contact-plus {
+  font-size: clamp(3.2rem, 5vw, 4rem);
+  line-height: 0.82;
+}
+
+.contact-label {
+  font-size: 1.18rem;
+  font-weight: 500;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 27, 23, 0.42);
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.contact-modal {
+  width: min(540px, 100%);
+  border-radius: 14px;
+  border: 1px solid rgba(31, 27, 23, 0.2);
+  background: #f7ecdc;
+  box-shadow: 0 20px 46px rgba(31, 27, 23, 0.28);
+  padding: 1.05rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.contact-modal h2 {
+  margin: 0;
+  font-size: 2rem;
+  line-height: 0.95;
+}
+
+.contact-modal p {
+  margin: 0;
+  font-size: 1.12rem;
+  line-height: 1.2;
+}
+
+.modal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.modal-links a {
+  display: inline-block;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(31, 27, 23, 0.2);
+  color: inherit;
+  text-decoration: none;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.modal-actions a,
+.modal-actions button {
+  border: 1px solid rgba(31, 27, 23, 0.24);
+  border-radius: 10px;
+  padding: 0.43rem 0.72rem;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255, 255, 255, 0.72);
+  font: inherit;
+  cursor: pointer;
+}
+
+.dino-card {
+  width: 100%;
+  height: 100%;
+  min-height: 170px;
+  border-radius: 16px;
+  border: 1px solid rgba(31, 27, 23, 0.18);
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: 0 8px 28px rgba(31, 27, 23, 0.08);
+  overflow: hidden;
+}
+
+.dino-iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+  background: #f6f0e7;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    padding: 1.15rem 0.7rem;
+    gap: 0.7rem;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 8vw, 4.1rem);
+  }
+
+  .cards-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+    margin-top: 0.1rem;
+  }
+
+  .bottom-row {
+    min-height: 132px;
+  }
+
+  .social-card,
+  .contact-add {
+    width: 100%;
+    aspect-ratio: 11 / 10;
+    padding: 0.7rem;
+    border-radius: 12px;
+  }
+
+  .card-brand {
+    font-size: 1.1rem;
+  }
+
+  .card-title {
+    font-size: 1.22rem;
+  }
+
+  .card-meta {
+    font-size: 0.98rem;
+  }
+
+  .contact-label {
+    font-size: 1rem;
+  }
+
+  .contact-modal h2 {
+    font-size: 1.5rem;
+  }
+
+  .contact-modal p {
+    font-size: 1rem;
+  }
+
+  .dino-card {
+    width: 100%;
+    height: 100%;
+    min-height: 132px;
+    border-radius: 12px;
+  }
+}
