@@ -3,82 +3,15 @@ import { useEffect, useState } from "react";
 const GITHUB_URL = "https://github.com/PatrickMcElroy";
 const LINKEDIN_URL = "https://www.linkedin.com/in/pdmcelroy/";
 const SUBSTACK_URL = "https://substack.com/@patrickdmcelroy";
-const SUBSTACK_HANDLE = "patrickdmcelroy";
 const CONTACT_CARD_URL = "/patrick-mcelroy.vcf";
-
-function useGitHubCardData() {
-  const [state, setState] = useState({ loading: true, data: null });
-
-  useEffect(() => {
-    let cancelled = false;
-
-    fetch("https://api.github.com/users/PatrickMcElroy")
-      .then((response) => {
-        if (!response.ok) throw new Error("GitHub API unavailable");
-        return response.json();
-      })
-      .then((data) => {
-        if (!cancelled) setState({ loading: false, data });
-      })
-      .catch(() => {
-        if (!cancelled) setState({ loading: false, data: null });
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  return state;
-}
-
-function useSubstackCardData() {
-  const [state, setState] = useState({ loading: true, post: null });
-
-  useEffect(() => {
-    let cancelled = false;
-
-    fetch(`https://${SUBSTACK_HANDLE}.substack.com/api/v1/posts?limit=1`)
-      .then((response) => {
-        if (!response.ok) throw new Error("Substack API unavailable");
-        return response.json();
-      })
-      .then((posts) => {
-        if (!cancelled) {
-          const latest = Array.isArray(posts) && posts.length > 0 ? posts[0] : null;
-          setState({ loading: false, post: latest });
-        }
-      })
-      .catch(() => {
-        if (!cancelled) setState({ loading: false, post: null });
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
-  return state;
-}
+const EMAIL_TO = "pat@patrickmcelroy.me";
+const RESUME_URL = "/resume/patrick-mcelroy-resume.pdf";
 
 function GitHubCard() {
-  const { loading, data } = useGitHubCardData();
-
   return (
     <a className="social-card github" href={GITHUB_URL} target="_blank" rel="noreferrer">
       <div className="card-brand">GitHub</div>
-      {loading && <div className="card-loading" />}
-      {!loading && data && (
-        <>
-          <img className="avatar" src={data.avatar_url} alt={data.login} />
-          <div className="card-title">{data.name || data.login}</div>
-          <div className="card-meta">
-            <span>{data.public_repos} repos</span>
-            <span>{data.followers} followers</span>
-          </div>
-        </>
-      )}
-      {!loading && !data && <div className="card-title">Profile</div>}
+      <div className="card-title">@PatrickMcElroy</div>
     </a>
   );
 }
@@ -87,36 +20,16 @@ function LinkedInCard() {
   return (
     <a className="social-card linkedin" href={LINKEDIN_URL} target="_blank" rel="noreferrer">
       <div className="card-brand">LinkedIn</div>
-      <div className="linked-in-mark">in</div>
-      <div className="card-title">pdmcelroy</div>
-      <div className="card-meta">
-        <span>Profile</span>
-      </div>
+      <div className="card-title">@pdmcelroy</div>
     </a>
   );
 }
 
 function SubstackCard() {
-  const { loading, post } = useSubstackCardData();
-  const dateLabel =
-    post?.post_date && !Number.isNaN(new Date(post.post_date).getTime())
-      ? new Date(post.post_date).toLocaleDateString()
-      : null;
-
   return (
     <a className="social-card substack" href={SUBSTACK_URL} target="_blank" rel="noreferrer">
       <div className="card-brand">Substack</div>
-      {loading && <div className="card-loading" />}
-      {!loading && post && (
-        <>
-          <div className="card-title">{post.title}</div>
-          <div className="card-meta">
-            {dateLabel && <span>{dateLabel}</span>}
-            {typeof post.audience === "number" && <span>{post.audience} reads</span>}
-          </div>
-        </>
-      )}
-      {!loading && !post && <div className="card-title">@patrickdmcelroy</div>}
+      <div className="card-title">@patrickdmcelroy</div>
     </a>
   );
 }
@@ -137,9 +50,41 @@ function ContactCard({ onActivate }) {
   );
 }
 
+function EmailCard({ onActivate }) {
+  return (
+    <button
+      className="bottom-card email-card"
+      type="button"
+      onClick={onActivate}
+      aria-label="Open email composer modal"
+    >
+      <span className="card-brand">Reach Out</span>
+      <span className="email-icon" aria-hidden="true">
+        @
+      </span>
+    </button>
+  );
+}
+
+function ResumeCard({ onActivate }) {
+  return (
+    <button
+      className="bottom-card resume-card"
+      type="button"
+      onClick={onActivate}
+      aria-label="Open resume viewer and download options"
+    >
+      <span className="card-brand">Resume</span>
+      <span className="resume-icon" aria-hidden="true">
+        PDF
+      </span>
+    </button>
+  );
+}
+
 function DinoGameCard() {
   return (
-    <div className="dino-card">
+    <div className="bottom-card dino-card">
       <iframe
         className="dino-iframe"
         title="Chrome T-Rex Runner"
@@ -154,22 +99,35 @@ function DinoGameCard() {
 
 export default function App() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
+  const [emailName, setEmailName] = useState("");
+  const [emailFrom, setEmailFrom] = useState("");
+  const [emailMessage, setEmailMessage] = useState("");
   const isMobileDevice =
     typeof navigator !== "undefined" &&
     /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  const modalTitleId = "contact-modal-title";
-  const modalNoteId = "contact-modal-note";
+  const contactModalTitleId = "contact-modal-title";
+  const contactModalNoteId = "contact-modal-note";
+  const resumeModalTitleId = "resume-modal-title";
+  const resumeModalNoteId = "resume-modal-note";
+  const emailModalTitleId = "email-modal-title";
+  const emailModalNoteId = "email-modal-note";
 
   useEffect(() => {
-    if (!isContactModalOpen) return;
+    if (!isContactModalOpen && !isResumeModalOpen && !isEmailModalOpen) return;
 
     const onKeyDown = (event) => {
-      if (event.key === "Escape") setIsContactModalOpen(false);
+      if (event.key === "Escape") {
+        setIsContactModalOpen(false);
+        setIsResumeModalOpen(false);
+        setIsEmailModalOpen(false);
+      }
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isContactModalOpen]);
+  }, [isContactModalOpen, isResumeModalOpen, isEmailModalOpen]);
 
   const onContactActivate = () => {
     if (isMobileDevice) {
@@ -178,6 +136,37 @@ export default function App() {
     }
 
     setIsContactModalOpen(true);
+  };
+
+  const onEmailActivate = () => {
+    setIsEmailModalOpen(true);
+  };
+
+  const onResumeActivate = () => {
+    setIsResumeModalOpen(true);
+  };
+
+  const onSendEmail = (event) => {
+    event.preventDefault();
+
+    const trimmedName = emailName.trim();
+    const trimmedFrom = emailFrom.trim();
+    const trimmedMessage = emailMessage.trim();
+
+    const subject = trimmedName ? `Website message from ${trimmedName}` : "Website message";
+    const bodyLines = [];
+
+    if (trimmedName) bodyLines.push(`Name: ${trimmedName}`);
+    if (trimmedFrom) bodyLines.push(`Email: ${trimmedFrom}`);
+    bodyLines.push("");
+    bodyLines.push(trimmedMessage);
+
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(bodyLines.join("\r\n"));
+    const mailtoQuery = `subject=${encodedSubject}&body=${encodedBody}`;
+
+    window.location.href = `mailto:${EMAIL_TO}?${mailtoQuery}`;
+    setIsEmailModalOpen(false);
   };
 
   return (
@@ -190,6 +179,8 @@ export default function App() {
         <ContactCard onActivate={onContactActivate} />
       </section>
       <section className="bottom-row">
+        <ResumeCard onActivate={onResumeActivate} />
+        <EmailCard onActivate={onEmailActivate} />
         <DinoGameCard />
       </section>
       {isContactModalOpen && (
@@ -202,12 +193,12 @@ export default function App() {
             className="contact-modal"
             role="dialog"
             aria-modal="true"
-            aria-labelledby={modalTitleId}
-            aria-describedby={modalNoteId}
+            aria-labelledby={contactModalTitleId}
+            aria-describedby={contactModalNoteId}
             onClick={(event) => event.stopPropagation()}
           >
-            <h2 id={modalTitleId}>Add Patrick McElroy</h2>
-            <p id={modalNoteId}>
+            <h2 id={contactModalTitleId}>Add Patrick McElroy</h2>
+            <p id={contactModalNoteId}>
               On desktop, import this contact card into Contacts or your address book.
             </p>
             <div className="modal-links">
@@ -229,6 +220,93 @@ export default function App() {
                 Close
               </button>
             </div>
+          </section>
+        </div>
+      )}
+      {isResumeModalOpen && (
+        <div
+          className="modal-backdrop"
+          role="presentation"
+          onClick={() => setIsResumeModalOpen(false)}
+        >
+          <section
+            className="contact-modal resume-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={resumeModalTitleId}
+            aria-describedby={resumeModalNoteId}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <h2 id={resumeModalTitleId}>Resume</h2>
+            <p id={resumeModalNoteId}>View or download the latest PDF.</p>
+            <div className="resume-viewer-wrap">
+              <iframe className="resume-viewer" title="Patrick McElroy Resume" src={RESUME_URL} />
+            </div>
+            <div className="modal-actions">
+              <a href={RESUME_URL} target="_blank" rel="noreferrer">
+                Open in New Tab
+              </a>
+              <a href={RESUME_URL} download="patrick-mcelroy-resume.pdf">
+                Download PDF
+              </a>
+              <button type="button" onClick={() => setIsResumeModalOpen(false)}>
+                Close
+              </button>
+            </div>
+          </section>
+        </div>
+      )}
+      {isEmailModalOpen && (
+        <div
+          className="modal-backdrop"
+          role="presentation"
+          onClick={() => setIsEmailModalOpen(false)}
+        >
+          <section
+            className="contact-modal email-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby={emailModalTitleId}
+            aria-describedby={emailModalNoteId}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <h2 id={emailModalTitleId}>Reach Out</h2>
+            <p id={emailModalNoteId}>Write your message and your mail app will open pre-filled.</p>
+            <form className="email-form" onSubmit={onSendEmail}>
+              <label htmlFor="email-name">
+                Name
+                <input
+                  id="email-name"
+                  type="text"
+                  value={emailName}
+                  onChange={(event) => setEmailName(event.target.value)}
+                />
+              </label>
+              <label htmlFor="email-from">
+                Your Email
+                <input
+                  id="email-from"
+                  type="email"
+                  value={emailFrom}
+                  onChange={(event) => setEmailFrom(event.target.value)}
+                />
+              </label>
+              <label htmlFor="email-message">
+                Message
+                <textarea
+                  id="email-message"
+                  required
+                  value={emailMessage}
+                  onChange={(event) => setEmailMessage(event.target.value)}
+                />
+              </label>
+              <div className="modal-actions">
+                <button type="submit">Compose Email</button>
+                <button type="button" onClick={() => setIsEmailModalOpen(false)}>
+                  Cancel
+                </button>
+              </div>
+            </form>
           </section>
         </div>
       )}
