@@ -2,8 +2,6 @@ BEGIN:VCARD
 VERSION:3.0
 N:McElroy;Patrick;;;
 FN:Patrick McElroy
-URL;TYPE=GitHub:https://github.com/PatrickMcElroy
-URL;TYPE=LinkedIn:https://www.linkedin.com/in/pdmcelroy/
-URL;TYPE=Substack:https://substack.com/@patrickdmcelroy
-NOTE:Update this card with preferred phone and email when ready.
+TEL;TYPE=CELL:+17577548111
+EMAIL;TYPE=INTERNET:pat@patrickmcelroy.me
 END:VCARD

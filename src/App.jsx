@@ -5,6 +5,8 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/pdmcelroy/";
 const SUBSTACK_URL = "https://substack.com/@patrickdmcelroy";
 const CONTACT_CARD_URL = "/patrick-mcelroy.vcf";
 const EMAIL_TO = "pat@patrickmcelroy.me";
+const PHONE_DISPLAY = "(757) 754-8111";
+const PHONE_LINK = "+17577548111";
 const RESUME_URL = "/resume/patrick-mcelroy-resume.pdf";
 
 function GitHubCard() {
@@ -59,9 +61,6 @@ function EmailCard({ onActivate }) {
       aria-label="Open email composer modal"
     >
       <span className="card-brand">Reach Out</span>
-      <span className="email-icon" aria-hidden="true">
-        @
-      </span>
     </button>
   );
 }
@@ -75,9 +74,6 @@ function ResumeCard({ onActivate }) {
       aria-label="Open resume viewer and download options"
     >
       <span className="card-brand">Resume</span>
-      <span className="resume-icon" aria-hidden="true">
-        PDF
-      </span>
     </button>
   );
 }
@@ -201,16 +197,9 @@ export default function App() {
             <p id={contactModalNoteId}>
               On desktop, import this contact card into Contacts or your address book.
             </p>
-            <div className="modal-links">
-              <a href={GITHUB_URL} target="_blank" rel="noreferrer">
-                GitHub
-              </a>
-              <a href={LINKEDIN_URL} target="_blank" rel="noreferrer">
-                LinkedIn
-              </a>
-              <a href={SUBSTACK_URL} target="_blank" rel="noreferrer">
-                Substack
-              </a>
+            <div className="contact-details">
+              <a href={`tel:${PHONE_LINK}`}>{PHONE_DISPLAY}</a>
+              <a href={`mailto:${EMAIL_TO}`}>{EMAIL_TO}</a>
             </div>
             <div className="modal-actions">
               <a href={CONTACT_CARD_URL} download="patrick-mcelroy.vcf">
