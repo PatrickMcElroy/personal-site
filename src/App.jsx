@@ -1,22 +1,11 @@
 import { useEffect, useState } from "react";
 
-const GITHUB_URL = "https://github.com/PatrickMcElroy";
 const LINKEDIN_URL = "https://www.linkedin.com/in/pdmcelroy/";
 const SUBSTACK_URL = "https://substack.com/@patrickdmcelroy";
 const CONTACT_CARD_URL = "/patrick-mcelroy.vcf";
 const EMAIL_TO = "pat@patrickmcelroy.me";
 const PHONE_DISPLAY = "(757) 754-8111";
 const PHONE_LINK = "+17577548111";
-const RESUME_URL = "/resume/patrick-mcelroy-resume.pdf";
-
-function GitHubCard() {
-  return (
-    <a className="social-card github" href={GITHUB_URL} target="_blank" rel="noreferrer">
-      <div className="card-brand">GitHub</div>
-      <div className="card-title">@PatrickMcElroy</div>
-    </a>
-  );
-}
 
 function LinkedInCard() {
   return (
@@ -55,48 +44,40 @@ function ContactCard({ onActivate }) {
 function EmailCard({ onActivate }) {
   return (
     <button
-      className="bottom-card email-card"
+      className="social-card email-link-card"
       type="button"
       onClick={onActivate}
-      aria-label="Open email composer modal"
+      aria-label="Open email modal"
     >
-      <span className="card-brand">Reach Out</span>
+      <span className="card-brand">Email</span>
+      <span className="card-title">{EMAIL_TO}</span>
     </button>
   );
 }
 
-function ResumeCard({ onActivate }) {
+function AboutCard() {
   return (
-    <button
-      className="bottom-card resume-card"
-      type="button"
-      onClick={onActivate}
-      aria-label="Open resume viewer and download options"
-    >
-      <span className="card-brand">Resume</span>
-    </button>
-  );
-}
-
-function DinoGameCard() {
-  return (
-    <div className="bottom-card dino-card">
-      <iframe
-        className="dino-iframe"
-        title="Chrome T-Rex Runner"
-        src="/trex/index.html"
-        sandbox="allow-scripts"
-        loading="lazy"
-        referrerPolicy="no-referrer"
-      />
-    </div>
+    <article className="bottom-card about-card">
+      <h2>About</h2>
+      <p>
+        I invest in and develop battery storage projects at electric cooperative substations
+        across Virginia and the Mid-Atlantic.
+      </p>
+      <p>
+        I currently work at Cargomatic building freight software while pursuing long-duration
+        opportunities in energy infrastructure and grid resilience.
+      </p>
+      <p>
+        I plan to write more about project development, energy markets, and storage deployment on
+        Substack.
+      </p>
+    </article>
   );
 }
 
 export default function App() {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const [isEmailModalOpen, setIsEmailModalOpen] = useState(false);
-  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
   const [emailName, setEmailName] = useState("");
   const [emailFrom, setEmailFrom] = useState("");
   const [emailMessage, setEmailMessage] = useState("");
@@ -105,25 +86,22 @@ export default function App() {
     /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
   const contactModalTitleId = "contact-modal-title";
   const contactModalNoteId = "contact-modal-note";
-  const resumeModalTitleId = "resume-modal-title";
-  const resumeModalNoteId = "resume-modal-note";
   const emailModalTitleId = "email-modal-title";
   const emailModalNoteId = "email-modal-note";
 
   useEffect(() => {
-    if (!isContactModalOpen && !isResumeModalOpen && !isEmailModalOpen) return;
+    if (!isContactModalOpen && !isEmailModalOpen) return;
 
     const onKeyDown = (event) => {
       if (event.key === "Escape") {
         setIsContactModalOpen(false);
-        setIsResumeModalOpen(false);
         setIsEmailModalOpen(false);
       }
     };
 
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
-  }, [isContactModalOpen, isResumeModalOpen, isEmailModalOpen]);
+  }, [isContactModalOpen, isEmailModalOpen]);
 
   const onContactActivate = () => {
     if (isMobileDevice) {
@@ -136,10 +114,6 @@ export default function App() {
 
   const onEmailActivate = () => {
     setIsEmailModalOpen(true);
-  };
-
-  const onResumeActivate = () => {
-    setIsResumeModalOpen(true);
   };
 
   const onSendEmail = (event) => {
@@ -168,16 +142,17 @@ export default function App() {
   return (
     <main className="app-shell">
       <h1>Patrick McElroy</h1>
+      <p className="tagline">
+        Software engineer and energy investor based in Norfolk, Virginia
+      </p>
       <section className="cards-row">
-        <GitHubCard />
         <LinkedInCard />
         <SubstackCard />
+        <EmailCard onActivate={onEmailActivate} />
         <ContactCard onActivate={onContactActivate} />
       </section>
       <section className="bottom-row">
-        <ResumeCard onActivate={onResumeActivate} />
-        <EmailCard onActivate={onEmailActivate} />
-        <DinoGameCard />
+        <AboutCard />
       </section>
       {isContactModalOpen && (
         <div
@@ -212,39 +187,6 @@ export default function App() {
           </section>
         </div>
       )}
-      {isResumeModalOpen && (
-        <div
-          className="modal-backdrop"
-          role="presentation"
-          onClick={() => setIsResumeModalOpen(false)}
-        >
-          <section
-            className="contact-modal resume-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby={resumeModalTitleId}
-            aria-describedby={resumeModalNoteId}
-            onClick={(event) => event.stopPropagation()}
-          >
-            <h2 id={resumeModalTitleId}>Resume</h2>
-            <p id={resumeModalNoteId}>View or download the latest PDF.</p>
-            <div className="resume-viewer-wrap">
-              <iframe className="resume-viewer" title="Patrick McElroy Resume" src={RESUME_URL} />
-            </div>
-            <div className="modal-actions">
-              <a href={RESUME_URL} target="_blank" rel="noreferrer">
-                Open in New Tab
-              </a>
-              <a href={RESUME_URL} download="patrick-mcelroy-resume.pdf">
-                Download PDF
-              </a>
-              <button type="button" onClick={() => setIsResumeModalOpen(false)}>
-                Close
-              </button>
-            </div>
-          </section>
-        </div>
-      )}
       {isEmailModalOpen && (
         <div
           className="modal-backdrop"
@@ -259,7 +201,7 @@ export default function App() {
             aria-describedby={emailModalNoteId}
             onClick={(event) => event.stopPropagation()}
           >
-            <h2 id={emailModalTitleId}>Reach Out</h2>
+            <h2 id={emailModalTitleId}>Email</h2>
             <p id={emailModalNoteId}>Write your message and your mail app will open pre-filled.</p>
             <form className="email-form" onSubmit={onSendEmail}>
               <label htmlFor="email-name">
