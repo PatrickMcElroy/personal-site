@@ -225,6 +225,11 @@ h1 {
   outline-offset: 3px;
 }
 
+.email-link-card .card-title {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
 .about-card {
   grid-column: span 4;
   aspect-ratio: auto;
@@ -280,8 +285,20 @@ h1 {
 }
 
 @media (max-width: 980px) {
+  html,
+  body,
+  #root {
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
   .app-shell {
+    height: auto;
+    min-height: 100svh;
     padding: 1.15rem 0.7rem;
+    padding-bottom: calc(1rem + env(safe-area-inset-bottom));
     gap: 0.7rem;
   }
 
@@ -321,6 +338,11 @@ h1 {
     font-size: 1.22rem;
   }
 
+  .email-link-card .card-title {
+    font-size: 1.05rem;
+    line-height: 1.08;
+  }
+
   .contact-label {
     font-size: 1rem;
   }
@@ -342,7 +364,7 @@ h1 {
   .about-card {
     grid-column: span 2;
     aspect-ratio: auto;
-    min-height: 220px;
+    min-height: 200px;
   }
 
   .email-modal {
