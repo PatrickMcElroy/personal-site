@@ -60,16 +60,16 @@ function AboutCard() {
     <article className="bottom-card about-card">
       <h2>About</h2>
       <p>
-        I invest in and develop battery storage projects at electric cooperative substations
-        across Virginia and the Mid-Atlantic.
+        I graduated University of Michigan in 2023 with degrees in business and computer science
+        before starting my career at Bloomberg in New York. After working there and helping lead
+        their AI integration efforts, I went to spearhead similar efforts as a lead for AI at
+        Cargomatic - a startup in the logistics space.
       </p>
       <p>
-        I currently work at Cargomatic building freight software while pursuing long-duration
-        opportunities in energy infrastructure and grid resilience.
-      </p>
-      <p>
-        I plan to write more about project development, energy markets, and storage deployment on
-        Substack.
+        Growing up in Virginia's Hampton Roads, I've watched the state's energy landscape shift
+        dramatically as data center demand reshapes the grid. Outside of work, I'm exploring
+        opportunities in developing battery energy storage projects at electric cooperative
+        substations to bring new capacity online where it's needed most.
       </p>
     </article>
   );
