@@ -283,6 +283,69 @@ h1 {
   width: min(680px, 100%);
 }
 
+.inline-link {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+  cursor: pointer;
+}
+
+.inline-link:hover,
+.inline-link:focus-visible {
+  text-decoration-thickness: 2px;
+}
+
+.reading-list-modal {
+  width: min(760px, 100%);
+  max-height: min(86vh, 860px);
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+.reading-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.05rem;
+  overflow-y: auto;
+  padding-right: 0.4rem;
+}
+
+.reading-list-entry {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.reading-list-titles {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.reading-list-titles a {
+  color: inherit;
+  font-size: 1.18rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.reading-list-entry p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.28;
+}
+
+.reading-list-entry p a {
+  color: inherit;
+}
+
 .email-form {
   display: grid;
   gap: 0.75rem;
@@ -409,5 +472,18 @@ h1 {
 
   .email-modal {
     width: min(100%, 96vw);
+  }
+
+  .reading-list-modal {
+    width: min(100%, 96vw);
+    max-height: 88vh;
+  }
+
+  .reading-list-titles a {
+    font-size: 1.05rem;
+  }
+
+  .reading-list-entry p {
+    font-size: 0.98rem;
   }
 }
