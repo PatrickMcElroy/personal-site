@@ -142,11 +142,15 @@ export default function App() {
 
   return (
     <main className="app-shell">
-      <img className="headshot" src="/headshot.jpg" alt="Patrick McElroy" />
-      <h1>Patrick McElroy</h1>
-      <p className="tagline">
-        AI deployment, policy, and strategy · Norfolk, Virginia
-      </p>
+      <header className="app-header">
+        <div className="app-heading">
+          <h1>Patrick McElroy</h1>
+          <p className="tagline">
+            AI deployment, policy, and strategy · Norfolk, Virginia
+          </p>
+        </div>
+        <img className="headshot" src="/headshot.jpg" alt="Patrick McElroy" />
+      </header>
       <section className="cards-row">
         <LinkedInCard />
         <ConsultingCard />

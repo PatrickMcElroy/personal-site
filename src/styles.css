@@ -37,14 +37,29 @@ body {
   gap: 1.1rem;
 }
 
+.app-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.app-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-width: 0;
+}
+
 .headshot {
-  width: clamp(96px, 11vw, 144px);
-  height: clamp(96px, 11vw, 144px);
+  width: clamp(110px, 13vw, 180px);
+  height: clamp(110px, 13vw, 180px);
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid rgba(31, 27, 23, 0.18);
   box-shadow: 0 8px 24px rgba(31, 27, 23, 0.12);
-  margin-bottom: -0.2rem;
+  flex-shrink: 0;
 }
 
 h1 {
@@ -313,9 +328,17 @@ h1 {
     gap: 0.7rem;
   }
 
+  .app-header {
+    gap: 0.7rem;
+  }
+
+  .app-heading {
+    gap: 0.35rem;
+  }
+
   .headshot {
-    width: clamp(80px, 22vw, 110px);
-    height: clamp(80px, 22vw, 110px);
+    width: clamp(72px, 18vw, 96px);
+    height: clamp(72px, 18vw, 96px);
   }
 
   h1 {
