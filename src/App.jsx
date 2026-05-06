@@ -229,7 +229,7 @@ function AboutCard({ onReadingListActivate }) {
       <p>
         I've led AI integration efforts at both Bloomberg, where I started after graduating from
         the University of Michigan in 2023, and Cargomatic, a logistics startup where I served as
-        AI lead. Working across a major financial data company and an early-stage operator gave me
+        AI lead. Working across a major financial data company and a logistics startup gave me
         a cross-industry view of how AI actually gets deployed, and how differently non-technical
         industries approach adoption.
       </p>
