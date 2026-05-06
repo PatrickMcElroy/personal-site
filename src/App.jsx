@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/pdmcelroy/";
-const CONSULTING_EMAIL = "consulting@patrickmcelroy.me";
+const CALENDLY_URL = "https://calendly.com/pmc-consult/intro";
 const CONTACT_CARD_URL = "/patrick-mcelroy.vcf";
-const EMAIL_TO = "pat@patrickmcelroy.me";
+const EMAIL_TO = "consulting@patrickmcelroy.me";
 const PHONE_DISPLAY = "(757) 754-8111";
 const PHONE_LINK = "+17577548111";
 
@@ -18,9 +18,9 @@ function LinkedInCard() {
 
 function ConsultingCard() {
   return (
-    <a className="social-card consulting" href={`mailto:${CONSULTING_EMAIL}`}>
+    <a className="social-card consulting" href={CALENDLY_URL} target="_blank" rel="noreferrer">
       <div className="card-brand">Consulting</div>
-      <div className="card-title">{CONSULTING_EMAIL}</div>
+      <div className="card-title">Book intro call</div>
     </a>
   );
 }
