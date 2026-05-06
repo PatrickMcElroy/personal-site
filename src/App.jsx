@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const LINKEDIN_URL = "https://www.linkedin.com/in/pdmcelroy/";
-const SUBSTACK_URL = "https://substack.com/@patrickdmcelroy";
+const CONSULTING_EMAIL = "consulting@patrickmcelroy.me";
 const CONTACT_CARD_URL = "/patrick-mcelroy.vcf";
 const EMAIL_TO = "pat@patrickmcelroy.me";
 const PHONE_DISPLAY = "(757) 754-8111";
@@ -16,11 +16,11 @@ function LinkedInCard() {
   );
 }
 
-function SubstackCard() {
+function ConsultingCard() {
   return (
-    <a className="social-card substack" href={SUBSTACK_URL} target="_blank" rel="noreferrer">
-      <div className="card-brand">Substack</div>
-      <div className="card-title">@patrickdmcelroy</div>
+    <a className="social-card consulting" href={`mailto:${CONSULTING_EMAIL}`}>
+      <div className="card-brand">Consulting</div>
+      <div className="card-title">{CONSULTING_EMAIL}</div>
     </a>
   );
 }
@@ -60,16 +60,17 @@ function AboutCard() {
     <article className="bottom-card about-card">
       <h2>About</h2>
       <p>
-        I graduated University of Michigan in 2023 with degrees in business and computer science
-        before starting my career at Bloomberg in New York. After working there and helping lead
-        their AI integration efforts, I went to spearhead similar efforts as a lead for AI at
-        Cargomatic - a startup in the logistics space.
+        I've led AI integration efforts at both Bloomberg, where I started after graduating from
+        the University of Michigan in 2023, and Cargomatic, a logistics startup where I served as
+        AI lead. Working across a major financial data company and an early-stage operator gave me
+        a cross-industry view of how AI actually gets deployed, and how differently non-technical
+        industries approach adoption.
       </p>
       <p>
-        Growing up in Virginia's Hampton Roads, I've watched the state's energy landscape shift
-        dramatically as data center demand reshapes the grid. Outside of work, I'm exploring
-        opportunities in developing battery energy storage projects at electric cooperative
-        substations to bring new capacity online where it's needed most.
+        Today I advise companies on AI integration strategy through Patrick McElroy Consulting,
+        with a particular interest in how policy and governance shape what's actually shippable. I
+        grew up in Hampton Roads and stay close to Virginia's energy landscape as data center
+        demand reshapes the grid.
       </p>
     </article>
   );
@@ -141,13 +142,14 @@ export default function App() {
 
   return (
     <main className="app-shell">
+      <img className="headshot" src="/headshot.jpg" alt="Patrick McElroy" />
       <h1>Patrick McElroy</h1>
       <p className="tagline">
-        Software engineer and energy investor based in Norfolk, Virginia
+        AI deployment, policy, and strategy · Norfolk, Virginia
       </p>
       <section className="cards-row">
         <LinkedInCard />
-        <SubstackCard />
+        <ConsultingCard />
         <EmailCard onActivate={onEmailActivate} />
         <ContactCard onActivate={onContactActivate} />
       </section>
