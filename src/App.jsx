@@ -67,10 +67,9 @@ function AboutCard() {
         industries approach adoption.
       </p>
       <p>
-        Today I advise companies on AI integration strategy through Patrick McElroy Consulting,
-        with a particular interest in how policy and governance shape what's actually shippable. I
-        grew up in Hampton Roads and stay close to Virginia's energy landscape as data center
-        demand reshapes the grid.
+        Today I advise companies on AI deployment through Patrick McElroy Consulting and do
+        research on how AI may impact public and economic policy. If you'd like to chat, send me
+        an email or book time on the calendar above.
       </p>
     </article>
   );
@@ -146,7 +145,7 @@ export default function App() {
         <div className="app-heading">
           <h1>Patrick McElroy</h1>
           <p className="tagline">
-            AI deployment, policy, and strategy · Norfolk, Virginia
+            AI deployment, policy, and consulting · Norfolk, Virginia
           </p>
         </div>
         <img className="headshot" src="/headshot.jpg" alt="Patrick McElroy" />
