@@ -1,5 +1,12 @@
 [
   {
+    "slug": "trading-firms-compute-2030",
+    "title": "Trading firms could control meaningful amounts of compute by 2030",
+    "subtitle": "An unlikely but possible reason we might not see as much compute centralization at the frontier labs by the end of the decade.",
+    "date": "2026-09-17",
+    "draft": true
+  },
+  {
     "slug": "the-case-for-anthropic-not-pausing",
     "title": "The Case for Anthropic Not Pausing (Yet)",
     "subtitle": "Prioritizing third party monitoring over discretionary and non-concretely verifiable pauses",

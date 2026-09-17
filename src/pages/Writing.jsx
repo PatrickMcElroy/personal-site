@@ -1,7 +1,7 @@
 import Masthead from "../Masthead";
 import { Link, useTitle } from "../router";
 import { SITE, formatDate } from "../data";
-import { POSTS } from "../writing";
+import { PUBLISHED } from "../writing";
 
 export default function Writing() {
   useTitle(`Writing · ${SITE.name}`);
@@ -14,7 +14,7 @@ export default function Writing() {
           <h1 className="post-title">Writing</h1>
         </header>
         <div className="writing writing-index">
-          {POSTS.map((post) => (
+          {PUBLISHED.map((post) => (
             <Link key={post.slug} className="entry" href={`/writing/${post.slug}`}>
               <div className="entry-meta">
                 <time dateTime={post.date}>{formatDate(post.date)}</time>

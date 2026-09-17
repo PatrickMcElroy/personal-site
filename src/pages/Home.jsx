@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import Masthead from "../Masthead";
 import { Link, useTitle } from "../router";
 import { PROJECT, SITE, formatDate } from "../data";
-import { POSTS } from "../writing";
+import { PUBLISHED } from "../writing";
 
 const FIXED_LAYOUT_QUERY = "(min-width: 1001px) and (min-height: 480px)";
 
@@ -75,7 +75,7 @@ function WritingEntry({ post }) {
 export default function Home() {
   useTitle(SITE.name);
   const listRef = useRef(null);
-  const { count, showMore } = useFitCount(listRef, POSTS.length);
+  const { count, showMore } = useFitCount(listRef, PUBLISHED.length);
 
   return (
     <div className="page home">
@@ -107,7 +107,7 @@ export default function Home() {
         </div>
 
         <aside className="writing" aria-label="Writing" ref={listRef}>
-          {POSTS.slice(0, count).map((post) => (
+          {PUBLISHED.slice(0, count).map((post) => (
             <WritingEntry key={post.slug} post={post} />
           ))}
           {showMore && (

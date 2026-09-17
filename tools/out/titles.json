@@ -1,0 +1,18 @@
+{
+ "c1": {
+  "title": "Net trading revenue, indexed to 2023 = 1",
+  "sub": "Firms with large compute programs versus peers without. 2026 is first-half revenue annualized."
+ },
+ "c2": {
+  "title": "Cumulative AI compute commitments by trading firms, $ billions",
+  "sub": "Contracts and own builds at announced value, plus estimated installed fleets. Black: Jane Street + HRT. Gray: all other firms."
+ },
+ "c3": {
+  "title": "Mid-frequency trading revenue, Jane Street + HRT, $ billions per quarter (log scale)",
+  "sub": "Actuals \u00d7 an assumed mid-frequency share; fitted trend of 32% per quarter extended to 2030. Gray lines: the pools the revenue comes from."
+ },
+ "c4": {
+  "title": "AI compute in gigawatts: trading firms versus frontier labs",
+  "sub": "Trading-firm figures converted from dollar commitments; lab figures from Epoch AI estimates and company guidance."
+ }
+}
