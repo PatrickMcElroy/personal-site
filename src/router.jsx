@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function currentPath() {
   return window.location.pathname.replace(/\/+$/, "") || "/";
@@ -12,10 +12,17 @@ export function navigate(to) {
 
 export function usePath() {
   const [path, setPath] = useState(currentPath);
+  const pathRef = useRef(path);
   useEffect(() => {
     const onPop = () => {
-      setPath(currentPath());
-      window.scrollTo(0, 0);
+      const next = currentPath();
+      const changedPage = pathRef.current !== next;
+      pathRef.current = next;
+      setPath(next);
+      // Only reset scroll when the page itself changed. Going back from a
+      // footnote jump leaves the path alone, and the browser restores the
+      // reader's position for us.
+      if (changedPage) window.scrollTo(0, 0);
     };
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
