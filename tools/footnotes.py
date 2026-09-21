@@ -33,5 +33,6 @@ NOTES = {
 "dwarkesh-10x": f'Dwarkesh Patel, "Why compute might get 10x more expensive." {a("https://www.dwarkesh.com/p/why-compute-might-get-10x-more-expensive")}',
 "profit-per-dollar": 'Assuming 45% of the two firms\' profit is attributable to mid-frequency strategies (about $40B annualized on first-half 2026 results) against $6–10B a year of compute spend (contracts annualized over their terms, plus on-premises capex). The ratio moves roughly one-for-one with the attribution share.',
 "lw-profit": f'"How the AI labs make profit (maybe, eventually)," LessWrong. {a("https://www.lesswrong.com/posts/ARRe4qjcuaRDBfARc/how-the-ai-labs-make-profit-maybe-eventually")}',
+"ogi": f'Nick Bostrom, "Open Global Investment as a Governance Model for AGI," 2025 ({a("https://nickbostrom.com/ogimodel.pdf", "nickbostrom.com")}).',
 "scenarios": f'{a("https://www.ai-2027.com", "AI 2027")}; Dario Amodei, {a("https://www.darioamodei.com/essay/the-adolescence-of-technology", "The Adolescence of Technology")}; Leopold Aschenbrenner, {a("https://situational-awareness.ai", "Situational Awareness")}.',
 }
