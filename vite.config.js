@@ -5,9 +5,9 @@ import { resolve } from "node:path";
 import posts from "./src/writing/posts.json" with { type: "json" };
 
 // Emit an index.html for every client-side route so static hosts serve
-// /writing/<slug> and /reading directly without rewrite rules.
+// /writing/<slug>, /reading and /research directly without rewrite rules.
 function staticRoutes() {
-  const routes = ["/reading", "/writing", ...posts.map((post) => `/writing/${post.slug}`)];
+  const routes = ["/reading", "/research", "/writing", ...posts.map((post) => `/writing/${post.slug}`)];
   let outDir = "dist";
   return {
     name: "static-routes",

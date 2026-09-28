@@ -9,6 +9,8 @@ export const POSTS = posts.map((post) => ({
 
 export const PUBLISHED = POSTS.filter((post) => !post.draft);
 
+export const RESEARCH_IDEAS = POSTS.filter((post) => post.kind === "research-idea");
+
 export function findPost(slug) {
   return POSTS.find((post) => post.slug === slug) ?? null;
 }

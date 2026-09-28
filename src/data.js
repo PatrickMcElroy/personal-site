@@ -26,6 +26,7 @@ export const NAV_LINKS = [
   { label: "Substack", href: SITE.substack, external: true },
   { label: "Resume", href: SITE.resume, external: true },
   { label: "Reading list", href: "/reading" },
+  { label: "Research ideas", href: "/research" },
   { label: "Book a call", href: SITE.calendly, external: true },
   { label: "Email", href: `mailto:${SITE.email}` },
 ];
