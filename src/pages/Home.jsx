@@ -2,7 +2,7 @@ import { useLayoutEffect, useRef, useState } from "react";
 import Masthead from "../Masthead";
 import { Link, useTitle } from "../router";
 import { PROJECT, SITE, formatDate } from "../data";
-import { PUBLISHED } from "../writing";
+import { PUBLISHED, kindLabel } from "../writing";
 
 const FIXED_LAYOUT_QUERY = "(min-width: 1001px) and (min-height: 480px)";
 
@@ -63,7 +63,7 @@ function WritingEntry({ post }) {
   return (
     <Link className="entry" href={`/writing/${post.slug}`}>
       <div className="entry-meta">
-        <span>Writing</span>
+        <span>{kindLabel(post)}</span>
         <time dateTime={post.date}>{formatDate(post.date)}</time>
       </div>
       <h3 className="entry-title">{post.title}</h3>

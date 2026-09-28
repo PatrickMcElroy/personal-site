@@ -12,3 +12,9 @@ export const PUBLISHED = POSTS.filter((post) => !post.draft);
 export function findPost(slug) {
   return POSTS.find((post) => post.slug === slug) ?? null;
 }
+
+const KIND_LABELS = { "research-idea": "Research idea" };
+
+export function kindLabel(post) {
+  return KIND_LABELS[post.kind] ?? "Writing";
+}

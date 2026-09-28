@@ -688,3 +688,93 @@ h3 {
     text-align: left;
   }
 }
+
+/* Research idea spec panel */
+
+.post-spec {
+  display: grid;
+  margin: 0.6rem 0 0;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.post-spec > div {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.post-spec dt {
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+
+.post-spec dd {
+  margin: 0;
+  color: var(--ink);
+}
+
+@media (max-width: 480px) {
+  .post-spec > div {
+    grid-template-columns: 1fr;
+    gap: 0.15rem;
+  }
+}
+
+/* Tables and code in posts */
+
+.post-body table {
+  width: 100%;
+  margin: 1.4em 0;
+  border-collapse: collapse;
+  font-family: var(--sans);
+  font-size: 0.88rem;
+  line-height: 1.4;
+  display: block;
+  overflow-x: auto;
+}
+
+.post-body th,
+.post-body td {
+  padding: 0.5em 0.9em 0.5em 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  vertical-align: top;
+}
+
+.post-body th {
+  font-weight: 500;
+  color: var(--ink-faint);
+  border-bottom-color: var(--rule-strong);
+}
+
+.post-body pre {
+  margin: 1.2em 0;
+  padding: 0.9em 1.1em;
+  border: 1px solid var(--rule);
+  overflow-x: auto;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.post-body code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+/* Marked stand-ins for copy Patrick hasn't written yet */
+
+.placeholder {
+  color: #9a4a1c;
+  background: rgba(214, 120, 40, 0.1);
+  font-family: var(--sans);
+  font-size: 0.9em;
+}
+
+p.placeholder {
+  padding: 0.6em 0.9em;
+  border-left: 2px solid rgba(214, 120, 40, 0.6);
+}

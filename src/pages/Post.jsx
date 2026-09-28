@@ -1,7 +1,7 @@
 import Masthead from "../Masthead";
 import { Link, useTitle } from "../router";
 import { SITE, formatDate } from "../data";
-import { PUBLISHED } from "../writing";
+import { PUBLISHED, kindLabel } from "../writing";
 
 export default function Post({ post }) {
   useTitle(`${post.title} · ${SITE.name}`);
@@ -15,11 +15,22 @@ export default function Post({ post }) {
       <article className="post">
         <header className="post-head">
           <div className="entry-meta">
-            <span>{post.draft ? "Draft" : "Writing"}</span>
+            <span>{kindLabel(post)}</span>
+            {post.draft && <span className="entry-draft">Draft</span>}
             <time dateTime={post.date}>{formatDate(post.date)}</time>
           </div>
           <h1 className="post-title">{post.title}</h1>
           {post.subtitle && <p className="post-subtitle">{post.subtitle}</p>}
+          {post.spec && (
+            <dl className="post-spec">
+              {post.spec.map(({ label, value }) => (
+                <div key={label}>
+                  <dt>{label}</dt>
+                  <dd>{value}</dd>
+                </div>
+              ))}
+            </dl>
+          )}
         </header>
         <div className="post-body" dangerouslySetInnerHTML={{ __html: post.html }} />
         <footer className="post-foot">

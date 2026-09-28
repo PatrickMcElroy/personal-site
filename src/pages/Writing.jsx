@@ -1,7 +1,7 @@
 import Masthead from "../Masthead";
 import { Link, useTitle } from "../router";
 import { SITE, formatDate } from "../data";
-import { POSTS } from "../writing";
+import { POSTS, kindLabel } from "../writing";
 
 export default function Writing() {
   useTitle(`Writing · ${SITE.name}`);
@@ -17,6 +17,7 @@ export default function Writing() {
           {POSTS.map((post) => (
             <Link key={post.slug} className="entry" href={`/writing/${post.slug}`}>
               <div className="entry-meta">
+                {post.kind && <span>{kindLabel(post)}</span>}
                 <time dateTime={post.date}>{formatDate(post.date)}</time>
                 {post.draft && <span className="entry-draft">Draft</span>}
               </div>

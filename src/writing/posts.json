@@ -1,5 +1,34 @@
 [
   {
+    "slug": "profit-context-agent-choices",
+    "kind": "research-idea",
+    "title": "Does telling a model who profits change what it chooses?",
+    "date": "2026-09-28",
+    "draft": true,
+    "spec": [
+      {
+        "label": "Question",
+        "value": "Does giving a model context on how its choices make money for its maker shift it toward the more profitable option?"
+      },
+      {
+        "label": "Design",
+        "value": "Paired A/B, 3 conditions, 2 models (crossover)"
+      },
+      {
+        "label": "Scale",
+        "value": "50 scenarios × 3 conditions × 3 samples = 450 decisions per model"
+      },
+      {
+        "label": "Est. compute",
+        "value": "~$50 per run, $100–150 with pilot iteration"
+      },
+      {
+        "label": "Status",
+        "value": "Proposed"
+      }
+    ]
+  },
+  {
     "slug": "trading-firms-compute-2030",
     "title": "Trading firms could control meaningful amounts of compute by 2030",
     "subtitle": "An unlikely but possible reason we might not see as much compute centralization at the frontier labs by the end of the decade.",
