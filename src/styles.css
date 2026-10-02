@@ -446,6 +446,18 @@ h3 {
   color: var(--ink-soft);
 }
 
+.post-body blockquote {
+  margin: 1.6em 0;
+  padding: 0.1em 0 0.1em 1.1em;
+  border-left: 2px solid var(--rule-strong);
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+.post-body blockquote p:last-child {
+  margin-bottom: 0;
+}
+
 /* Post pages */
 
 .post {

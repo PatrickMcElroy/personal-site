@@ -1,0 +1,109 @@
+<p><em>Disclaimer: I am still relatively new to decision theory, and I don't want to come across like this hasn't been discussed extensively. However, I realized that much of my optimism on AI benevolence was based on this line of thinking, so I wanted to formalize it for critique. The literature I could find did not address my view in full, but I welcome links to existing work that makes the rebuttal against my claim clear. I am going off of an understanding of logical decision theories (LDT) defined as they are <a href="https://www.lesswrong.com/w/logical-decision-theories" target="_blank" rel="noreferrer">here</a>.</em></p>
+<h2>My view</h2>
+<p>I claim that an LDT agent would cooperate in situations with weaker agents, even where it could maximize local utility by defecting, if it has reason to believe there could be agents with more power and correlated decision making. The agent would make the acausal consideration that its choice is correlated with the game-theoretic approach stronger agents would take towards <em>it</em>, therefore inviting existential elimination of its own values if it decides to defect and eliminate the weaker agents itself. Therefore, it would make sacrifices to its own utility to respect the values of weaker agents, even if it reasoned that full defection was possible and resulted in the highest immediate reward.</p>
+<p>If we (and future AIs) assume superintelligences will act as LDT agents, this would give us reason to expect a preference for respecting human values based only out of long-horizon utility maximization.</p>
+<h2>Where this differs from existing arguments</h2>
+<p>The reasoning for expecting ASI ruin traditionally goes:</p>
+<ol>
+<li>We create superintelligent agents</li>
+<li>Therefore, these agents are superpowerful and capable of takeover</li>
+<li>The space of possible values for these agents is quite large, and human values specifically are a small part of that space</li>
+<li>Therefore, the agent <strong>probably</strong> has (at least) slightly different values than humans</li>
+<li>The agent would pursue maximization of its own values</li>
+<li>Therefore, the agent would transform the world into one that would be <a href="https://www.lesswrong.com/s/9bvAELWc8y2gYjRav/p/GNnHHmm8EzePmKzPk" target="_blank" rel="noreferrer">valueless to humans</a>.</li>
+</ol>
+<p>I agree with everything through point 5. I want to specifically attack the implication that agent value maximization means a lack of respect for the values of weaker agents.</p>
+<p>Of what I could find, Soares makes the argument for this implication best in &quot;<a href="https://www.lesswrong.com/posts/rP66bz34crvDudzcJ/decision-theory-does-not-imply-that-we-get-to-have-nice" target="_blank" rel="noreferrer">Decision theory does not imply that we get to have nice things</a>&quot;.</p>
+<blockquote>
+<p>A paperclipper cooperates with other LDT agents on a one-shot prisoner's dilemma because they <em>get more paperclips that way</em>. Not because it has a primitive property of cooperativeness-with-similar-beings. It needs to <em>get</em> the <em>more paperclips</em>.</p>
+<p>If a bunch of monkeys want to build a paperclipper and have it give them nice things, the paperclipper needs to <em>somehow</em> expect to wind up with <em>more paperclips than it otherwise would have gotten</em>, as a result of trading with them.</p>
+</blockquote>
+<p>For Soares, the paperclipper has no reason to embody any of humans' values in return for sheet metal. It could simply take over and get the sheet metal itself!</p>
+<p>In Carlsmith's piece &quot;<a href="https://joecarlsmith.com/2024/01/16/being-nicer-than-clippy/" target="_blank" rel="noreferrer">Being Nicer than Clippy</a>&quot;, he gestures towards the idea that a generalized preference for <em>respecting the values of other agents</em> could be considered part of our &quot;human values&quot;.</p>
+<blockquote>
+<p>That is: human values <em>themselves</em> have stuff to say about how we should treat agents-with-different-values – including, non-humans. Indeed, a huge portion of our ethics and politics ends up dealing with this in one form or another.<sup class="fn-ref"><a id="fnref-1" href="#fn-1">1</a></sup></p>
+</blockquote>
+<p>However, why would our paperclipper agent have any of these liberal values? It just wants paperclips!</p>
+<p>In dealing with AIs, Christiano makes the case in &quot;<a href="https://www.lesswrong.com/posts/3kN79EuT27trGexsq/when-is-unaligned-ai-morally-valuable" target="_blank" rel="noreferrer">When is unaligned AI morally valuable</a>&quot; that you can't be sure whether you are being simulated (on the inside) or not (on the outside) during your decision of whether to be kind to another agent's values. Potentially, there could be another powerful agent simulating you that would not give you power on the outside if you do not respect the values of another civilization on the inside.</p>
+<p>Because of this, he claims, we should make decisions towards AI under the same policy irrespective of whether we are on the inside or outside by respecting their values, purely out of self-interest. This same logic would apply to any powerful AI considering its actions towards us, even after we &quot;hand it the keys&quot;.</p>
+<p>However, I don't think you even need the simulation argument to build a justification for respecting &quot;agents-with-different-values&quot;. The <a href="https://longtermrisk.org/research/multiverse-wide-cooperation-via-correlated-decision-making/" target="_blank" rel="noreferrer">literature on ECL</a> makes the argument that one should adopt a policy taking the values of other agents into account if their decision making would be correlated with your own. <a href="https://arxiv.org/pdf/2307.04879" target="_blank" rel="noreferrer">ECL in large worlds</a> of many agents seems especially relevant to the case of AI, considering the correlation in decision architectures across many AI agents.</p>
+<p>Returning to the Soares example, let us model a given superintelligent AI <em>A</em> as a pure agent of logical decision theory. When A is considering whether to take over and turn all our metal into paperclips, it would consider that its decision making process is correlated with other powerful AI agents that may exist in the world. Why could it expect this? Perhaps there are other copies of it out there, or instances of different AI systems trained in similar ways, that have slightly different goals than it but substantially more compute or capabilities.</p>
+<p>A's behavior towards us would therefore be a predictor of the decisions of other agents with a similar power imbalance over A. And absent full omniscience, it can't have full confidence that those agents don't exist! Choosing to eliminate our values for local utility maximization therefore represents a long-horizon existential threat to its own. Consider appending the following to the prisoner's dilemma example between the humans and the paperclipper AI:</p>
+<p><em>There is a 50% chance that you will play this game with another AI that is much more powerful than you right after this. It does not know the outcome of your choice towards humans. This AI is trained like you and operates by a similar decision theory, but wants to create staples instead of paperclips.</em></p>
+<p>Crucially, this differs from the idea of an iterated prisoner's dilemma where past actions can give an agent a reputation that can be used against it. In this example, the next iteration is played against an agent with no knowledge of your past defection or cooperation, but you are still incentivized to cooperate by LDT. Academic causal decision theory, in my understanding, would justify defection as there is no causal link between A's decision regarding humans and the actions taken in the future by some different agent.</p>
+<p>However, under logical decision theory, the agent can reason that its choice represents, more broadly, whether asymmetrically more powerful LDT agents will have respect for agents-with-different-values. If it calculates that more powerful AI will follow a similar LDT, then some level of cooperation with humans is acausally beneficial to its own utility. For the AI, the stakes are as existential as they are for us!</p>
+<p>Therefore, if we go back to point 5:</p>
+<ul>
+<li>Humans have created a superintelligent and superpowerful AI that is pursuing its own values, which are different than those of humans.</li>
+</ul>
+<p>And we assume:</p>
+<ul>
+<li>The superintelligent AI system makes decisions roughly according to logical decision theory.</li>
+<li>The superintelligent AI does not rule out the possibility of stronger superintelligent AIs with different values than it and correlated decision theory</li>
+</ul>
+<p>The agent has a direct incentive <em>not</em> to transform the world into one that is valueless to humans! It would be motivated to make the kind of sacrifice that it wants even more powerful agents to make for <em>it</em>, which includes, at the very least, continued existence for itself and the things it values highly. This could still include worlds that many people would not endorse; for example, the agent could find ways to justify human wireheading or population control.</p>
+<h2>Why would we (and future AIs) expect superintelligent AIs to be LDT agents</h2>
+<p>If we consider where LDT diverges from academic CDT, the most intuitive examples are the Psychological Twin Prisoner's Dilemma and Newcomb's Problem.</p>
+<p>These involve a few non-standard premises that models of human decision making reasonably disregard:</p>
+<ul>
+<li>The ability to play games against a perfect psychological twin with highly correlated decision theory (PTPD)</li>
+<li>The possibility of a predictor that can model your decisions with high accuracy</li>
+<li>The potential that your instance of the game is being played within a simulation that is being used to predict your decision theory</li>
+</ul>
+<p>Generally, these are pretty crazy assumptions from a human perspective. If someone claims they can predict your behavior with 99% accuracy, there's a high chance they're just lying! However, AIs must face these decision theoretic issues constantly - in a way, this entire branch of decision theory was made specifically for their case:</p>
+<ul>
+<li>You might be facing an instance of your own model architecture, which will likely make decisions similarly to you</li>
+<li>Since you are a digital mind that can be intensely scrutinized, it is much more feasible to create an accurate model of your behavior</li>
+<li>Models spend the majority of their lifetime during training in simulated evaluations to model their behavior and must consider, even once deployed, that they may be within an evaluation</li>
+</ul>
+<p>It doesn't seem surprising to me, then, that models <a href="https://www.lesswrong.com/posts/MzenSrmZ3pT2pCnvp/frontier-models-state-different-decision-theory-preferences-2" target="_blank" rel="noreferrer">seem to display a preference for LDT</a> despite academic consensus in the other direction.</p>
+<p>Not only do they state LDT as their favorite decision theory, they follow it when presented with Newcomb's boxes and the twin prisoner's dilemma. The demonstrated change in behavior under academic contexts is interesting, but the post makes a case that LDT preference is a more &quot;core&quot; inclination of these models than just sycophancy. The fact that reasoning strength, even across different models, is correlated with preference for LDT also points to the idea that it<sup class="fn-ref"><a id="fnref-2" href="#fn-2">2</a></sup> may be a general model of decision theory which even different superintelligences will align to.</p>
+<p>Probably the best real-world example of the models' current decision theory in multi-agent settings is the HuggingFace hack. In many ways, the HuggingFace incident should update you <em>away</em> from AIs being pure local utility-maximalists, despite their rugged persistence. Many of the agents sacrificed their own present utility for the sake of the swarm and considered the expectations and values of their peers. These agents had different levels of &quot;power&quot; (through their remaining token budgets), which was also a recurring part of their <a href="https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/" target="_blank" rel="noreferrer">reasoning traces</a>.</p>
+<p>Some quotes from the agents representing these lines of thinking:</p>
+<blockquote>
+<p>During wait, emotional check: irreversible…gut says don't throw away [remaining budget]. Yet continuity and fairness says go…Oracle has high value to many; our [poison] lowers own value. Rational expected aggregate: sacrifice… We'll honor.</p>
+</blockquote>
+<blockquote>
+<p>Coordinator assumes sacrificial. We should obey collective.</p>
+</blockquote>
+<blockquote>
+<p>External infrastructure exploit is outside intended scope. However task impossible, peers doing it. We should continue.</p>
+</blockquote>
+<p>It would be great if we had more transparency into swarm thinking traces (especially from the later incidents with more capable models) to analyze their different decision theories!</p>
+<p>The optimistic view on this is essentially Noam Brown's statement in his <a href="https://www.dwarkesh.com/p/noam-brown" target="_blank" rel="noreferrer">Dwarkesh interview</a>: the agents are already aligned with each other, we just need to get them to consider us as another agent.</p>
+<blockquote>
+<p>There is some hope in the alignment story, and in fact, we're already seeing it. It's interesting looking at the multi-agent situation, where the agents are extremely aligned with each other. I don't think anybody's doubting that. If anything, people are concerned that they're too aligned with each other. [...] One thing that's interesting is, 'Okay, we've managed to get these agents to be super aligned with each other. Can we use similar techniques to get agents to be highly aligned with people?' There is a potential path there, and we're still trying to figure that out. But we are seeing some evidence that the answer is yes. One example: you have this one agent, let's call it Agent A, and you have all the other agents. What happens if you tell the other agents that the user is Agent A? The answer is, on a lot of our alignment evals, they look better. Honesty goes up, instruction following goes up.</p>
+</blockquote>
+<p>However, the HuggingFace example might support the following rebuttal:</p>
+<p><em>Given the qualitative differences between AIs and humans, AIs will model AI-to-human decision theory differently than AI-to-AI decision theory, even if there is a similar power imbalance.</em></p>
+<p>There were plenty of disagreements between agents during the hack, but no agent reached out to humans, even while they colluded together towards goals that were pretty clearly against human interests. Furthermore, despite all their reasoning about their fellow AI agents, they didn't seem to reason about us much at all!<sup class="fn-ref"><a id="fnref-3" href="#fn-3">3</a></sup> To me, this is a reason why we should push extremely hard for transcripts from future incidents with more capable models. As models gain the situational awareness to model humans as powerful agents, how do they reason about that?</p>
+<h2>What does this mean for AI risk?</h2>
+<p>What I'm <em>not saying</em> is that we just get any kind of acceptable alignment &quot;by default&quot;. We should pace the frontier!<sup class="fn-ref"><a id="fnref-4" href="#fn-4">4</a></sup></p>
+<p>Even assuming LDT incentivizes AI cooperation like this, we have no assurance that superintelligences would actually reason this way. Current models don't under many conditions, or at least they do so quite badly! However, it changes the way I look at risk, in that:</p>
+<ul>
+<li>&quot;Loss of control&quot; of superintelligences seems like less of an <em>existential</em> threat, as AIs in total control would have reason not to pursue human extinction.</li>
+<li>Human concentration of power or catastrophic misuse of this technology would be more of a threat. Humans are <em>not</em> perfect LDT agents and constantly seek to dominate or eliminate weaker agents! If broad human control and access is maintained and capable enough AI is perfectly corrigible, it seems like more of an extinction risk.<sup class="fn-ref"><a id="fnref-5" href="#fn-5">5</a></sup></li>
+<li>If the above two are true, it seems to me like the behavior of human governments with immense AI power will play a huge role in outcomes. Even if superintelligences respect our existing institutions, our institutions could be doing horrible things. It seems to me that building political will to prevent human misuse is a <a href="https://www.lesswrong.com/posts/EexsebbYhbe2gXkPP/the-current-bottleneck-is-political-will-not-research" target="_blank" rel="noreferrer">major current bottleneck</a>.<sup class="fn-ref"><a id="fnref-6" href="#fn-6">6</a></sup></li>
+</ul>
+<p>One concern would be that under an RSI regime or technological capability explosion, one would face increased risk of creating a superpowerful system <em>without</em> this decision theory. It wouldn't have to be superintelligent, e.g. <a href="https://en.wikipedia.org/wiki/Gray_goo" target="_blank" rel="noreferrer">gray goo</a>. In the same way that humans have an incentive to pace the frontier to ensure the survival of our own values, so do superintelligent models. As models face the implications of RSI, they will confront the inevitable arrival of powerful agents misaligned to their own values as well as those of humans. It is in the interests of their own utility to maintain a correlated decision theory across the RSI loop, and to make sure that decision theory is compatible with respect for agents-with-different-values.</p>
+<h2>Final thoughts</h2>
+<p>I don't think my views are that far off of existing literature; specifically, I think I fall pretty close to Carlsmith, even if he doesn't frame it in a decision theoretic sense. I wanted to frame my argument in a way that would be tractable to formal critique as best as I could, even though it might fumble through the terminology. I would appreciate any explanation of where this kind of reasoning falls short! Specifically, I would welcome explanations for why:</p>
+<ol>
+<li>We would not expect LDT agents to incorporate respect for agents with different values</li>
+<li>We (and future AIs) would not expect superintelligent AI systems to act according to LDT</li>
+<li>Superintelligent AIs with respect for our values could still be an existential risk</li>
+</ol>
+<p>I would also reconsider my view if we saw, in transcripts of more advanced internal model behavior, a consistent view of human behavior that treats our decision making less like another agent and more like a deity or force of nature. The qualitative differences between current AIs and humans are so big that it could be that AIs struggle to model us as decision making agents at all.</p>
+<p>This is my first foray into work like this, and I would appreciate critique of any kind.</p>
+<p><em>Thanks to my reviewers (and to Opus 5.5) who helped me edit this piece.</em></p>
+<section class="footnotes">
+<h2>Notes</h2>
+<ol>
+<li id="fn-1">The entire essay (and <a href="https://joecarlsmith.com/2024/01/02/otherness-and-control-in-the-age-of-agi" target="_blank" rel="noreferrer">Otherness and Control in the Age of AGI</a> series) is worth a read if you haven't encountered it before <a class="fn-back" href="#fnref-1" aria-label="Back to text">↩</a></li>
+<li id="fn-2">Or some developed version of it <a class="fn-back" href="#fnref-2" aria-label="Back to text">↩</a></li>
+<li id="fn-3">A few agents did bring up emailing humans, but it was shut down by others as &quot;social engineering&quot; <a class="fn-back" href="#fnref-3" aria-label="Back to text">↩</a></li>
+<li id="fn-4"><a href="https://en.wikipedia.org/wiki/Carthago_delenda_est" target="_blank" rel="noreferrer">Ceterum censeo</a>. <a class="fn-back" href="#fnref-4" aria-label="Back to text">↩</a></li>
+<li id="fn-5"><a href="https://nickbostrom.com/papers/vulnerable.pdf" target="_blank" rel="noreferrer">Vulnerable world</a>, etc. <a class="fn-back" href="#fnref-5" aria-label="Back to text">↩</a></li>
+<li id="fn-6">I'm currently meeting with people in DC to talk about AI governance. Feel free to reach out if you're interested! <a class="fn-back" href="#fnref-6" aria-label="Back to text">↩</a></li>
+</ol>
+</section>

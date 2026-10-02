@@ -1,5 +1,10 @@
 [
   {
+    "slug": "decision-theoretic-case-for-ai-niceness",
+    "title": "A decision theoretic case for AI niceness",
+    "date": "2026-10-02"
+  },
+  {
     "slug": "profit-context-agent-choices",
     "kind": "research-idea",
     "title": "Does telling a model who profits change what it chooses?",
