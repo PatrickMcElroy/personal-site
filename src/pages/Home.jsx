@@ -1,7 +1,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import Masthead from "../Masthead";
 import { Link, useTitle } from "../router";
-import { PROJECT, SITE, formatDate } from "../data";
+import { COMPANY, PROJECT, SITE, formatDate } from "../data";
 import { PUBLISHED, kindLabel } from "../writing";
 
 const FIXED_LAYOUT_QUERY = "(min-width: 1001px) and (min-height: 480px)";
@@ -103,6 +103,17 @@ export default function Home() {
 
           <section className="intro">
             <h1 className="site-name">{SITE.name}</h1>
+            <div className="feature-head">
+              <div className="entry-meta">
+                <span>{COMPANY.kicker}</span>
+              </div>
+              <h2 className="feature-title">
+                <Link href={COMPANY.url} external>
+                  {COMPANY.title}
+                  <span className="feature-domain">{COMPANY.domain}</span>
+                </Link>
+              </h2>
+            </div>
           </section>
         </div>
 

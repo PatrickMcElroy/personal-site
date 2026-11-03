@@ -21,6 +21,13 @@ export const PROJECT = {
   date: "2026-09-10",
 };
 
+export const COMPANY = {
+  kicker: "Product",
+  title: "PMC Assistant",
+  url: "https://pmcassistant.com",
+  domain: "pmcassistant.com",
+};
+
 export const NAV_LINKS = [
   { label: "LinkedIn", href: SITE.linkedin, external: true },
   { label: "Substack", href: SITE.substack, external: true },
